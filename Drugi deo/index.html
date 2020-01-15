@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    
+    <style>
+        ul{
+    padding: 0;
+    list-style: none;
+}
+.meni{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dugme{
+    position: relative;
+    font-size: 24px;
+    background: #2196f3;
+    cursor: pointer;
+    color: white;
+}
+ul li{
+    display: inline-block;
+    position: relative;
+    line-height: 21px;
+    text-align: left;
+}
+ul li a{
+    display: block;
+    padding: 8px 25px;
+    background: #262626;
+    color: #fff;
+    text-decoration: none;
+}
+ul li ul.padajuci-meni a:hover{
+    color: #fff;
+    background: #2196f3;
+}
+ul li ul.padajuci-meni{
+    min-width: 100%;
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+}
+ul li ul.padajuci-meni li{
+    display: block;
+}
+    </style>
+    <title>Drugi deo</title>>
+    <script>
+        $(document).ready(function(){
+            $(".meni").click(function(){
+                $(this).find(".padajuci-meni").slideToggle("fast");
+            });
+});
+$(document).on("click", function(event){
+    var $trigger = $(".meni");
+    if($trigger !== event.target && !$trigger.has(event.target).length){
+        $(".padajuci-meni").slideUp("fast");
+    }            
+});
+    </script>
+</head>	
+<body>
+  <ul>
+      <li class="meni">
+          <a class="dugme">Meni</a>
+          <ul class="padajuci-meni">
+              <li><a href="#">Jedan</a></li>
+              <li><a href="#">Dva</a></li>
+              <li><a href="#">Tri</a></li>
+              <li><a href="#">Cetri</a></li>
+              <li><a href="#">Pet</a></li>
+          </ul>
+      </li>
+      </ul>
+</body>
+</html>
